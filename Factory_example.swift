@@ -1,9 +1,3 @@
-//
-//  main.swift
-//  DesignPatterns
-//
-//  Created by Mario Alberto Durán Vega on 11/04/26.
-//
 
 import Foundation
 
