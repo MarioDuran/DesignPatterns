@@ -1,3 +1,10 @@
+//
+//  main.swift
+//  DesignPatterns
+//
+//  Created by Mario Alberto Durán Vega on 11/04/26.
+//
+
 import Foundation
 
 protocol NotificationSender {
@@ -22,27 +29,46 @@ final class PushSender: NotificationSender {
     }
 }
 
-enum NotificationType {
-    case email
-    case sms
-    case push
-}
-
-final class NotificationFactory {
-    static func createSender(type: NotificationType) -> NotificationSender {
-        switch type {
-        case .email:
-            return EmailSender()
-        case .sms:
-            return SMSSender()
-        case .push:
-            return PushSender()
-        }
+class NotificationCreator {
+    func createSender() -> NotificationSender {
+        fatalError("Subclasses must override createSender()")
     }
 }
 
-let sender = NotificationFactory.createSender(type: .email)
-sender.send(to: "mario@company.com", message: "Your account was created successfully")
+final class EmailCreator: NotificationCreator {
+    override func createSender() -> NotificationSender {
+        return EmailSender()
+    }
+}
 
-let smsSender = NotificationFactory.createSender(type: .sms)
-smsSender.send(to: "+521234567890", message: "Your verification code is 123456")
+final class SMSCreator: NotificationCreator {
+    override func createSender() -> NotificationSender {
+        return SMSSender()
+    }
+}
+
+final class PushCreator: NotificationCreator {
+    override func createSender() -> NotificationSender {
+        return PushSender()
+    }
+}
+
+func notify(using creator: NotificationCreator, recipient: String, message: String) {
+    let sender = creator.createSender()
+    sender.send(to: recipient, message: message)
+}
+
+let emailCreator = EmailCreator()
+notify(using: emailCreator,
+       recipient: "mario@company.com",
+       message: "Your account was created successfully")
+
+let smsCreator = SMSCreator()
+notify(using: smsCreator,
+       recipient: "+521234567890",
+       message: "Your verification code is 123456")
+
+let pushCreator = PushCreator()
+notify(using: pushCreator,
+       recipient: "user_device_token_001",
+       message: "You have a new message")
