@@ -14,6 +14,17 @@ import Foundation
 // y que todos los componentes del juego usen la misma, debes implementar
 // el patrón Singleton.
 
+enum Difficulty: String {
+    case facil = "fácil"
+    case medio = "medio"
+    case dificil = "difícil"
+}
+
+enum Resolution: String {
+    case fullHD = "1920x1080"
+    case hd = "1280x720"
+    case quadHD = "2560x1440"
+}
 
 // Ejercicio:
 //
@@ -32,13 +43,13 @@ class GameConfig {
     // TODO: Declarar una instancia estática única del Singleton
     
     // Propiedades privadas para la configuración
-    private var difficulty: String
+    private var difficulty: Difficulty
     private var volume: Int
-    private var resolution: String
+    private var resolution: Resolution
     
     // Valores permitidos
-    private let validDifficulties = ["fácil", "medio", "difícil"]
-    private let validResolutions = ["1920x1080", "1280x720", "2560x1440"]
+    private let validDifficulties = [Difficulty.facil, Difficulty.medio, Difficulty.dificil]
+    private let validResolutions = [Resolution.fullHD, Resolution.hd, Resolution.quadHD]
     
     // TODO: Hacer el inicializador privado para impedir la creación
     // de instancias desde fuera de la clase
