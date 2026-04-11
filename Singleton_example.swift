@@ -1,23 +1,24 @@
-final class MiSingleton {
+final class MySingleton {
     
-    static let shared = MiSingleton()
-    var nombre: String = "Instancia Única"
+    static let shared = MySingleton()
+    var name: String = "Unique Instance"
+    
     private init() {
-        print("Singleton inicializado")
+        print("Singleton initialized")
     }
     
-    func hacerAlgo() {
-        print("El Singleton está haciendo algo con: \(nombre)")
+    func doSomething() {
+        print("The Singleton is doing something with: \(name)")
     }
 }
 
-let instancia1 = MiSingleton.shared
-let instancia2 = MiSingleton.shared
+let instance1 = MySingleton.shared
+let instance2 = MySingleton.shared
 
-let direccion1 = Unmanaged.passUnretained(instancia1).toOpaque()
-let direccion2 = Unmanaged.passUnretained(instancia2).toOpaque()
+let address1 = Unmanaged.passUnretained(instance1).toOpaque()
+let address2 = Unmanaged.passUnretained(instance2).toOpaque()
 
-MiSingleton.shared.hacerAlgo()
+MySingleton.shared.doSomething()
 
-print("Dirección de instancia 1: \(direccion1)")
-print("Dirección de instancia 2: \(direccion2)")
+print("Instance 1 address: \(address1)")
+print("Instance 2 address: \(address2)")
