@@ -1,5 +1,3 @@
-import Foundation
-
 protocol NotificationSender {
     func send(to recipient: String, message: String)
 }
@@ -22,26 +20,24 @@ final class PushSender: NotificationSender {
     }
 }
 
-class NotificationCreator {
-    func createSender() -> NotificationSender {
-        fatalError("Subclasses must override createSender()")
-    }
+protocol NotificationCreator {
+    func createSender() -> NotificationSender
 }
 
 final class EmailCreator: NotificationCreator {
-    override func createSender() -> NotificationSender {
+    func createSender() -> NotificationSender {
         return EmailSender()
     }
 }
 
 final class SMSCreator: NotificationCreator {
-    override func createSender() -> NotificationSender {
+    func createSender() -> NotificationSender {
         return SMSSender()
     }
 }
 
 final class PushCreator: NotificationCreator {
-    override func createSender() -> NotificationSender {
+    func createSender() -> NotificationSender {
         return PushSender()
     }
 }
