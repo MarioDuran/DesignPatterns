@@ -1,4 +1,4 @@
-// Problema: Adaptarer
+// Problema: Adapter
 //
 // Se está desarrollando una aplicación de comercio electrónico. El sistema ya cuenta con una interfaz PaymentProcessor que es utilizada por todas las partes del sistema para procesar pagos.
 //
