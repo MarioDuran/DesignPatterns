@@ -1,14 +1,14 @@
-// Problema, Adaptar sistemas de pagos
+// Problema: Adaptarer
 //
 // Se está desarrollando una aplicación de comercio electrónico. El sistema ya cuenta con una interfaz PaymentProcessor que es utilizada por todas las partes del sistema para procesar pagos.
 //
 // El equipo ha decidido integrar un nuevo proveedor de pagos llamado FastPayAPI. Sin embargo, este proveedor expone una interfaz diferente a la esperada por el sistema actual.
 //
-// Requisitos
+// Requisitos:
 //
 // Implementar un adaptador que permita utilizar FastPayAPI como si fuera un PaymentProcessor, sin modificar el resto del sistema.
 //
-// Beneficios
+// Beneficios:
 //
 // Evita la modificación del código existente.
 // Facilita el mantenimiento y futuras integraciones de otros proveedores.
