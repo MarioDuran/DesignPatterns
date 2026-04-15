@@ -5,7 +5,7 @@ protocol EnemyPrototype {
     func display()
 }
 
-class WeaponInfo {
+final class WeaponInfo {
     var type: String
     var damage: Int
 
@@ -19,7 +19,7 @@ class WeaponInfo {
     }
 }
 
-class Goblin: EnemyPrototype {
+final class Goblin: EnemyPrototype {
     var health: Int
     var weapon: WeaponInfo
 
@@ -47,7 +47,7 @@ class Goblin: EnemyPrototype {
     }
 }
 
-class EnemySpawner {
+final class EnemySpawner {
     private let prototype: EnemyPrototype
 
     init(prototype: EnemyPrototype) {
