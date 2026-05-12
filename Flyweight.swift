@@ -13,7 +13,7 @@
  - Coordenada x.
  - Coordenada y.
 
- Requisitos:
+ Requerimientos:
 
  - Clase IconType:
    - Debe ser inmutable.
@@ -28,15 +28,6 @@
      - coordenada y.
    - Tiene una referencia a una instancia compartida de IconType.
    - Debe tener un método draw() o similar que delegue la renderización a IconType.
-
- - IconFactory:
-   - Debe reutilizar instancias de IconType.
-   - Si un tipo de ícono ya existe, debe regresar la instancia existente.
-   - Si no existe, debe crearla y almacenarla.
-
- - Canvas:
-   - Debe contener múltiples íconos.
-   - Debe usar IconFactory para compartir IconType.
 */
 
 // TODO: Implement final class IconType
